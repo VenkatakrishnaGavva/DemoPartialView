@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <div id="partialgoeshere"></div>
+    <a id="myLink">Open Popup</a>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<script type="text/javascript">
+
+    $(document ).ready(function() {
+
+        $("#myLink").click(function () {
+            {
+                alert("sss");
+                $.get("@Url.Action("ShowNamesPopup")", function (data) {
+                    $("#partialgoeshere").empty();
+                    $("#partialgoeshere").html(data);
+
+                });
+            }
+        });
+
+    });
+</script>
+
+
